@@ -1962,6 +1962,7 @@ void FindReplaceDlg::enableFindInFilesControls(bool isEnable)
 		::ShowWindow(::GetDlgItem(_hSelf, ID_STATICTEXT_REPLACE), SW_SHOW);
 		::ShowWindow(::GetDlgItem(_hSelf, IDREPLACEWITH), SW_SHOW);
 	}
+
 	::ShowWindow(::GetDlgItem(_hSelf, IDD_FINDINFILES_REPLACEINFILES), isEnable?SW_SHOW:SW_HIDE);
 	::ShowWindow(::GetDlgItem(_hSelf, IDD_FINDINFILES_FILTERS_STATIC), isEnable?SW_SHOW:SW_HIDE);
 	::ShowWindow(::GetDlgItem(_hSelf, IDD_FINDINFILES_FILTERS_COMBO), isEnable?SW_SHOW:SW_HIDE);
@@ -2317,6 +2318,17 @@ void FindReplaceDlg::enableMarkFunc()
 	::SetWindowText(_hSelf, label);
 	setDefaultButton(IDCMARKALL);
 }
+
+void FindReplaceDlg::enableCommentControls(bool isEnable)
+{
+	int isVisible = isEnable ? SW_SHOW : SW_HIDE;
+	//Show comment search options 
+	::ShowWindow(::GetDlgItem(_hSelf, IDCOMMENTSEARCH_GROUPBOX), isVisible);
+	::ShowWindow(::GetDlgItem(_hSelf, IDCOMMENTSEARCH_CHECKBOX), isVisible);
+	::ShowWindow(::GetDlgItem(_hSelf, IDCOMMENTSEARCH_FINDIN), isVisible);
+	::ShowWindow(::GetDlgItem(_hSelf, IDCOMMENTSEARCH_EXCLUDE), isVisible);
+}
+
 void FindReplaceDlg::combo2ExtendedMode(int comboID)
 {
 	HWND hFindCombo = ::GetDlgItem(_hSelf, comboID);

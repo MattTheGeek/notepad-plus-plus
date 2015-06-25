@@ -342,6 +342,7 @@ private :
 	void enableFindInFilesFunc();
 	void enableMarkAllControls(bool isEnable);
 	void enableMarkFunc();
+	void enableCommentControls(bool isEnable);
 
 	void setDefaultButton(int nID) {
 		SendMessage(_hSelf, DM_SETDEFID, (WPARAM)nID, 0L);
